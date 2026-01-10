@@ -1,0 +1,143 @@
+{
+  "name": "github-test-project",
+  "version": "1.0.0",
+  "description": "A comprehensive test project demonstrating modern development practices and GitHub integration",
+  "main": "src/utils/dataProcessor.js",
+  "scripts": {
+    "start": "node src/utils/dataProcessor.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write src/**/*.js",
+    "dev": "nodemon src/utils/dataProcessor.js",
+    "build": "npm run lint && npm run test",
+    "docs": "jsdoc src/**/*.js -d docs/",
+    "security-audit": "npm audit",
+    "performance": "node --prof src/utils/dataProcessor.js"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "data-processing",
+    "validation",
+    "sanitization",
+    "testing",
+    "security",
+    "performance",
+    "github",
+    "ci-cd"
+  ],
+  "author": {
+    "name": "Claude AI",
+    "email": "claude@anthropic.com",
+    "url": "https://github.com/redwagonagency/ai-coding-agent"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redwagonagency/ai-coding-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/redwagonagency/ai-coding-agent/issues"
+  },
+  "homepage": "https://github.com/redwagonagency/ai-coding-agent#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "validator": "^13.11.0",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0",
+    "nodemon": "^3.0.2",
+    "jsdoc": "^4.0.2",
+    "supertest": "^6.3.3",
+    "@types/jest": "^29.5.8",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.test.js",
+      "!src/tests/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "testMatch": [
+      "**/src/tests/**/*.test.js",
+      "**/src/**/*.test.js"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es2021": true,
+      "jest": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "error",
+      "prefer-const": "error",
+      "no-var": "error",
+      "eqeqeq": "error",
+      "curly": "error"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run build"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "files": [
+    "src/",
+    "docs/",
+    "README.md",
+    "LICENSE"
+  ],
+  "directories": {
+    "lib": "src",
+    "test": "src/tests",
+    "doc": "docs"
+  }
+}
